@@ -1,18 +1,55 @@
-torch==2.3.0
-torchaudio==2.3.0
-numpy<2
-setproctitle==1.3.3
-attrdict==2.0.1
-librosa==0.10.2.post1
-langdetect==1.0.9
-pydub==0.25.1
-pyloudnorm==0.1.1
-modelscope==1.22.2
-WeTextProcessing==1.0.4.1
-transformers>=4.41.2,<=4.49.0,!=4.46.*,!=4.47.*,!=4.48.*;python_version<'3.10'
-transformers>=4.41.2,<=4.49.0,!=4.46.*,!=4.47.*,!=4.48.0;python_version>='3.10'
-x-transformers==1.44.4
-torchdiffeq==0.2.5
-openai-whisper==20240930
-httpx==0.28.1
-gradio==5.23.1
+# This requirements.txt file is a merge of the original MegaTTS3 dependencies
+# and additional dependencies required by the Gradio UI (`optimized_app_v1.py`).
+# It is recommended to compare and merge this with the official MegaTTS3
+# requirements.txt from the project's GitHub repository, prioritizing
+# the versions specified in the official file where conflicts exist.
+
+# --- Assumed Core MegaTTS3 Dependencies (Verify against official requirements.txt) ---
+# Replace these with the actual lines from the original MegaTTS3 repo's requirements.txt
+# if available, as they specify tested versions.
+torch>=1.10.0
+torchaudio>=0.10.0
+torchvision>=0.11.0
+numpy>=1.20.0
+scipy>=1.7.0
+soundfile>=0.10.0
+librosa>=0.8.0
+PyYAML>=5.4.1
+tqdm>=4.62.3
+# Add any other core dependencies from the original file here...
+
+
+# --- Additional Dependencies for Gradio UI and Related Functions (from your code) ---
+
+# For the Gradio web interface
+gradio>=3.0.0
+
+# For parsing SRT subtitle files
+srt>=3.0.0
+
+# For audio manipulation (requires system ffmpeg installation)
+pydub>=0.25.0
+
+# For loudness normalization
+pyloudnorm>=0.1.0
+
+# Text Normalization library
+tn>=0.0.1
+
+# For language detection
+langdetect>=1.0.0
+
+# Hugging Face Transformers library (used for G2P model loading)
+transformers>=4.0.0
+
+# Dependency often required by transformers
+filelock>=3.0.0
+
+# Potentially useful general ML dependencies
+# einops>=0.3.0 # Used in some transformer architectures
+# attrdict>=2.0.0 # Used by some HParams implementations
+
+# --- System Dependency Note ---
+# pydub requires the ffmpeg system library.
+# In Google Colab, install it using:
+# !apt-get update && apt-get install -y ffmpeg
